@@ -505,6 +505,7 @@ GameObject:
   - component: {fileID: 1496039300}
   - component: {fileID: 1496039301}
   - component: {fileID: 1496039302}
+  - component: {fileID: 1496039303}
   m_Layer: 0
   m_Name: bird
   m_TagString: Untagged
@@ -569,7 +570,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496039297}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.36, y: 0.26, z: 0}
+  m_LocalPosition: {x: 0.79, y: 0.7, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 0}
@@ -629,6 +630,19 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 4.17326
+  m_Distance: 0.005
   m_DampingRatio: 0
-  m_Frequency: 2
+  m_Frequency: 1.5
+--- !u!114 &1496039303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496039297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58eaddc730f3f40499cab0c025a82793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1496039301}

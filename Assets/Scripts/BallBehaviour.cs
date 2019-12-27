@@ -4,7 +4,21 @@ using UnityEngine;
 
 public class BallBehaviour : MonoBehaviour
 {
-    void OnMouseDown2D(){
-        
+    private bool isPressed = false;
+    public Rigidbody2D rb;
+
+    void Update(){
+        if(isPressed){
+            rb.position = Camera.main.ScreenToWorldPoint( Input.mousePosition);
+        }
+    }
+    void OnMouseDown(){
+        isPressed = true;
+        rb.isKinematic = true;
+    }
+
+    void OnMouseUp(){
+        isPressed = false;
+        rb.isKinematic = false;
     }
 }
