@@ -6,12 +6,18 @@ public class BallBehaviour : MonoBehaviour
 {
     private bool isPressed = false;
     public Rigidbody2D rb;
+    public Rigidbody2D hook;
 
     public float releaseTime = .15f;
+    public float maxDistance = 6f;
 
     void Update(){
         if(isPressed){
-            rb.position = Camera.main.ScreenToWorldPoint( Input.mousePosition);
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint( Input.mousePosition);
+            if(Vector3.Distance(mousePos,hook.position)> maxDistance)
+                rb.position = hook.position + (mousePos -hook.position ).normalized * maxDistance;
+            else
+                rb.position = mousePos; 
         }
     }
     void OnMouseDown(){
@@ -28,5 +34,6 @@ public class BallBehaviour : MonoBehaviour
     IEnumerator Release(){
         yield return new WaitForSeconds(releaseTime);
         GetComponent<SpringJoint2D>().enabled = false;
+        this.enabled = false;
     }
 }
