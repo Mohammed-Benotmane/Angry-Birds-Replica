@@ -8,6 +8,8 @@ public class BallBehaviour : MonoBehaviour
     public Rigidbody2D rb;
     public Rigidbody2D hook;
 
+    public TrailRenderer trail;
+
     public float releaseTime = .15f;
     public float maxDistance = 6f;
 
@@ -29,6 +31,7 @@ public class BallBehaviour : MonoBehaviour
         isPressed = false;
         rb.isKinematic = false;
         StartCoroutine(Release());
+        trail.enabled = true;
     }
 
     IEnumerator Release(){
